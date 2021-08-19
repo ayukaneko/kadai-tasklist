@@ -33,7 +33,12 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+             $tasklist = new Tasklist;
+
+        // メッセージ作成ビューを表示
+        return view('tasklists.create', [
+            'tasklist' => $tasklist,
+        ]);
     }
 
     /**
@@ -44,7 +49,13 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //     // メッセージを作成
+        $tasklist = new Tasklist;
+        $tasklist->content = $request->content;
+        $tasklist->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 
     /**
@@ -55,7 +66,13 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
+        // // idの値でメッセージを検索して取得
+        $tasklist = Tasklist::findOrFail($id);
+
+        // メッセージ詳細ビューでそれを表示
+        return view('tasklists.show', [
+            'tasklist' => $tasklist,
+        ]);
     }
 
     /**
@@ -66,7 +83,13 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        //    // idの値でメッセージを検索して取得
+        $tasklist = Tasklist::findOrFail($id);
+
+        // メッセージ編集ビューでそれを表示
+        return view('tasklists.edit', [
+            'tasklist' => $tasklist,
+        ]);
     }
 
     /**
@@ -78,7 +101,14 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //  // idの値でメッセージを検索して取得
+        $tasklist = Tasklist::findOrFail($id);
+        // メッセージを更新
+        $tasklist->content = $request->content;
+        $tasklist->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 
     /**
@@ -89,6 +119,12 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //// idの値でメッセージを検索して取得
+        $tasklist = Tasklist::findOrFail($id);
+        // メッセージを削除
+        $tasklist->delete();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 }

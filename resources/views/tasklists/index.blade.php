@@ -16,11 +16,14 @@
             <tbody>
                 @foreach ($tasklists as $tasklist)
                 <tr>
-                    <td>{{ $tasklist->id }}</td>
+                     {{-- メッセージ詳細ページへのリンク --}}
+                    <td>{!! link_to_route('tasklists.show', $tasklist->id, ['tasklist' => $tasklist->id]) !!}</td>
                     <td>{{ $tasklist->content }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     @endif
+     {{-- メッセージ作成ページへのリンク --}}
+    {!! link_to_route('tasklists.create', '新規メッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
 @endsection

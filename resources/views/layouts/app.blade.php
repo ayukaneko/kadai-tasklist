@@ -8,6 +8,15 @@
     </head>
 
     <body>
+        
+        {{-- ナビゲーションバー --}}
+        @include('commons.navbar')
+
+        <div class="container">
+            @yield('content')
+        </div>
+
+        <!-- JavaScriptの指定は省略 -->
         <header class="mb-4">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 {{-- トップページへのリンク --}}
@@ -20,6 +29,9 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
+                          {{-- メッセージ作成ページへのリンク --}}
+                <li class="nav-item">{!! link_to_route('tasklists.create', '新規メッセージの投稿', [], ['class' => 'nav-link']) !!}</li>
+            
                     </ul>
                 </div>
             </nav>
