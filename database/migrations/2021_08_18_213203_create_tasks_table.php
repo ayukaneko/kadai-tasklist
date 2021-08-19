@@ -27,6 +27,6 @@ class CreateTasklistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasklists');
+        Schema::dropIfExists('tasks');
     }
 }
