@@ -32,4 +32,4 @@
 
 Route::get('/', 'TasksController@index');
 
-Route::resource('tasklists', 'TasksController');
+Route::resource('tasks', 'TasksController');
