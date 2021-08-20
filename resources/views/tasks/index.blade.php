@@ -20,7 +20,7 @@
                      {{-- タスク詳細ページへのリンク --}}
                     <td>{!! link_to_route('tasks.show', $task->id, ['task' => $task->id]) !!}</td>
                     <td>{{ $task->content }}</td>
-                     <td>{{ $message->title }}</td>
+                     <td>{{ $task->title }}</td>
                 </tr>
                 @endforeach
             </tbody>
