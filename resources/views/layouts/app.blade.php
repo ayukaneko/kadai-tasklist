@@ -15,9 +15,6 @@
               {{-- エラーメッセージ --}}
             @include('commons.error_messages')
             @yield('content')
-              {{-- エラーメッセージ --}}
-            @include('commons.error_messages')
-            @yield('title')
         </div>
 
         <!-- JavaScriptの指定は省略 -->
